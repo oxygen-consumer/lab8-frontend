@@ -3,14 +3,28 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
+import { HeaderComponent } from './header/header.component';
+import { CarsComponent } from './pages/cars/cars.component';
+import { ClientsComponent } from './pages/clients/clients.component';
+import { TransactionsComponent } from './pages/transactions/transactions.component';
+import { SearchComponent } from './pages/search/search.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    CarsComponent,
+    ClientsComponent,
+    TransactionsComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
