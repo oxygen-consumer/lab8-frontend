@@ -1,0 +1,47 @@
+<form [formGroup]="carCreationForm">
+  <mat-form-field appearance="fill">
+    <mat-label>Model</mat-label>
+    <input formControlName="model" matInput placeholder="Ex. BMW" />
+    <mat-error *ngIf="model">Campul este obligatoriu</mat-error>
+  </mat-form-field>
+
+  <br/>
+
+  <mat-form-field appearance="fill">
+    <mat-label>An achizitie</mat-label>
+    <input
+      formControlName="year"
+      type="number"
+      matInput
+      placeholder="Ex. 2007"
+    />
+    <mat-error *ngIf="year"
+      >Campul este obligatoriu si anul trebuie sa fie cuprins intre 1900 si
+      2021.</mat-error
+    >
+  </mat-form-field>
+
+  <br/>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Kilometri</mat-label>
+    <input
+      formControlName="km"
+      type="number"
+      matInput
+      placeholder="Ex. 50000"
+    />
+    <mat-error *ngIf="km">Campul este obligatoriu</mat-error>
+  </mat-form-field>
+
+  <br/>
+
+  <button
+    mat-flat-button
+    (click)="submit()"
+    [disabled]="!carCreationForm.valid"
+  >
+    Adauga
+  </button>
+  <button mat-flat-button (click)="close()">Cancel</button>
+</form>

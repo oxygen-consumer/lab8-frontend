@@ -1,0 +1,17 @@
+<form [formGroup]="carGenerationForm">
+    <mat-form-field aparence="fill">
+        <mat-label>Numarul de entitati</mat-label>
+        <input formControlName="num" matInput placeholder="Ex. 5">
+        <mat-error *ngIf="num">Numarul trebuie sa fie pozitiv</mat-error>
+    </mat-form-field>
+
+    <br/>
+
+  <button
+    mat-flat-button
+    (click)="submit()"
+    [disabled]="!carGenerationForm.valid"
+  >
+    Genereaza
+  </button>
+  <button mat-flat-button (click)="close()">Cancel</button>
