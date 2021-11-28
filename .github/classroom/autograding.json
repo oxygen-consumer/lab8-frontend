@@ -1,0 +1,14 @@
+{
+  "tests": [
+    {
+      "name": "Prettier",
+      "setup": "sudo -H npm i -g prettier",
+      "run": "prettier -c .",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 1,
+      "points": 1
+    }
+  ]
+}
