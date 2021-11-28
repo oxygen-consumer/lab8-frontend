@@ -17,7 +17,7 @@ jobs:
     - name: Update submodule
       run: |
         cd main-repo
-        git submodule update --remote frontend
+        git submodule update --remote lab8-frontend
         git add .
         git config user.name github-actions
         git config user.email github-actions@github.com
