@@ -1,20 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { Car } from '../car-interface'
-import { CarsApiService } from '../cars-api.service'
+import { Car } from '../car-interface';
+import { CarsApiService } from '../cars-api.service';
 import { Sort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-cars-table',
   templateUrl: './cars-table.component.html',
-  styleUrls: ['./cars-table.component.scss']
+  styleUrls: ['./cars-table.component.scss'],
 })
 export class CarsTableComponent implements OnInit {
   data: Car[] = [];
   sortedData: Car[] = [];
-  columnsToDisplay = ['id', 'model', 'acquisition_year', 'kilometers', 'on_warranty', 'workmanship_sum'];
+  columnsToDisplay = [
+    'id',
+    'model',
+    'acquisition_year',
+    'kilometers',
+    'on_warranty',
+    'workmanship_sum',
+  ];
 
   constructor(private api: CarsApiService) {
-    this.api.getCars().subscribe(x => {
+    this.api.getCars().subscribe((x) => {
       this.data = x;
     });
     this.sortedData = this.data.slice();
@@ -38,9 +45,7 @@ export class CarsTableComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
 
 function compare(a: number | string, b: number | string, isAsc: boolean) {

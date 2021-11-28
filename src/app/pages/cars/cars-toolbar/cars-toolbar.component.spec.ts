@@ -8,9 +8,8 @@ describe('CarsToolbarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CarsToolbarComponent ]
-    })
-    .compileComponents();
+      declarations: [CarsToolbarComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

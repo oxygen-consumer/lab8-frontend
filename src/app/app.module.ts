@@ -28,7 +28,7 @@ import { CarsGenDialComponent } from './pages/cars/cars-gen-dial/cars-gen-dial.c
     CarsTableComponent,
     CarsToolbarComponent,
     CarsAddDialComponent,
-    CarsGenDialComponent
+    CarsGenDialComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,14 +37,14 @@ import { CarsGenDialComponent } from './pages/cars/cars-gen-dial/cars-gen-dial.c
     MaterialModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [
     {
       provide: 'API_BASE_URL',
-      useValue: environment.apiRoot
-    }
+      useValue: environment.apiRoot,
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

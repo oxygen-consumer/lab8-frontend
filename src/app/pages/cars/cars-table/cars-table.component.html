@@ -1,34 +1,36 @@
 <table mat-table [dataSource]="data">
-    <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef>ID</th>
-        <td mat-cell *matCellDef="let element">{{element.id}}</td>
-    </ng-container>
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>ID</th>
+    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+  </ng-container>
 
-    <ng-container matColumnDef="model">
-        <th mat-header-cell *matHeaderCellDef>Model</th>
-        <td mat-cell *matCellDef="let element">{{element.model}}</td>
-    </ng-container>
+  <ng-container matColumnDef="model">
+    <th mat-header-cell *matHeaderCellDef>Model</th>
+    <td mat-cell *matCellDef="let element">{{ element.model }}</td>
+  </ng-container>
 
-    <ng-container matColumnDef="acquisition_year">
-        <th mat-header-cell *matHeaderCellDef>An achizitie</th>
-        <td mat-cell *matCellDef="let element">{{element.acquisition_year}}</td>
-    </ng-container>
+  <ng-container matColumnDef="acquisition_year">
+    <th mat-header-cell *matHeaderCellDef>An achizitie</th>
+    <td mat-cell *matCellDef="let element">{{ element.acquisition_year }}</td>
+  </ng-container>
 
-    <ng-container matColumnDef="kilometers">
-        <th mat-header-cell *matHeaderCellDef>Kilometri</th>
-        <td mat-cell *matCellDef="let element">{{element.kilometers}}</td>
-    </ng-container>
+  <ng-container matColumnDef="kilometers">
+    <th mat-header-cell *matHeaderCellDef>Kilometri</th>
+    <td mat-cell *matCellDef="let element">{{ element.kilometers }}</td>
+  </ng-container>
 
-    <ng-container matColumnDef="on_warranty">
-        <th mat-header-cell *matHeaderCellDef>Garanție</th>
-        <td mat-cell *matCellDef="let element">{{element.on_warranty ? '&#10003;' : '&#10005;'}}</td>
-    </ng-container>
+  <ng-container matColumnDef="on_warranty">
+    <th mat-header-cell *matHeaderCellDef>Garanție</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.on_warranty ? "&#10003;" : "&#10005;" }}
+    </td>
+  </ng-container>
 
-    <ng-container matColumnDef="workmanship_sum">
-        <th mat-header-cell *matHeaderCellDef>Suma manopera</th>
-        <td mat-cell *matCellDef="let element">{{element.workmanship_sum}}</td>
-    </ng-container>
+  <ng-container matColumnDef="workmanship_sum">
+    <th mat-header-cell *matHeaderCellDef>Suma manopera</th>
+    <td mat-cell *matCellDef="let element">{{ element.workmanship_sum }}</td>
+  </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-    <tr mat-row *matRowDef="let rowData; columns: columnsToDisplay"></tr>
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let rowData; columns: columnsToDisplay"></tr>
 </table>

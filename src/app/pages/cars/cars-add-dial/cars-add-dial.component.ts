@@ -1,12 +1,12 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Car } from '../car-interface'
+import { Car } from '../car-interface';
 
 @Component({
   selector: 'app-cars-add-dial',
   templateUrl: './cars-add-dial.component.html',
-  styleUrls: ['./cars-add-dial.component.scss']
+  styleUrls: ['./cars-add-dial.component.scss'],
 })
 export class CarsAddDialComponent implements OnInit {
   public carCreationForm: FormGroup = new FormGroup({
@@ -32,12 +32,14 @@ export class CarsAddDialComponent implements OnInit {
   constructor(
     private readonly dialogRef: MatDialogRef<CarsAddDialComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Car
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     if (this.data) {
       this.carCreationForm.controls['model'].setValue(this.data.model);
-      this.carCreationForm.controls['year'].setValue(this.data.acquisition_year);
+      this.carCreationForm.controls['year'].setValue(
+        this.data.acquisition_year
+      );
       this.carCreationForm.controls['km'].setValue(this.data.kilometers);
     }
   }
@@ -52,6 +54,6 @@ export class CarsAddDialComponent implements OnInit {
   }
 
   public close(): void {
-    this.dialogRef.close()
+    this.dialogRef.close();
   }
 }
