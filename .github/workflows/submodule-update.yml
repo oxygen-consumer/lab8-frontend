@@ -10,7 +10,7 @@ jobs:
       uses: actions/checkout@master
       with:
         repository: AP-MI-2021/lab-8910-oxygen-consumer
-        token: ${{ secrets.REPO_ACCES_TOKEN }}
+        token: ${{ secrets.REPO_ACCES }}
         submodules: true
         path: ./main-repo
 
