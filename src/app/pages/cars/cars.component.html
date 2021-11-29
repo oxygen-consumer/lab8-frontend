@@ -2,4 +2,7 @@
   (launchAdd)="addDial()"
   (launchGen)="genDial()"
 ></app-cars-toolbar>
-<app-cars-table></app-cars-table>
+<app-cars-table
+  (launchDel)="delDial($event)"
+  (launchEdit)="editDial($event)"
+></app-cars-table>

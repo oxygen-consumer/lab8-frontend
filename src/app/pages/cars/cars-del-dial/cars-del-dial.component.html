@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Ștergere mașină</h1>
+
+<div mat-dialog-content>
+  <p>Sunteți sigur că doriți sa ștergeți mașina cu id-ul {{ id }}?</p>
+  <p>Această operațiune va șterge toate tranzacțile asociate acesteia</p>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="confirm()" color="warn">Ștergere</button>
+  <button mat-button (click)="cancel()">Anulare</button>
+</div>

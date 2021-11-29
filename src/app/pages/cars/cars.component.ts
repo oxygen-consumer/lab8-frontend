@@ -4,7 +4,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { CarsAddDialComponent } from './cars-add-dial/cars-add-dial.component';
 import { CarsGenDialComponent } from './cars-gen-dial/cars-gen-dial.component';
 import { Car } from './car-interface';
-import { Num } from './car-interface';
+import { CarsDelDialComponent } from './cars-del-dial/cars-del-dial.component';
+import { CarsEditDialComponent } from './cars-edit-dial/cars-edit-dial.component';
 
 @Component({
   selector: 'app-cars',
@@ -34,9 +35,31 @@ export class CarsComponent implements OnInit {
     this.dialog
       .open(CarsGenDialComponent)
       .afterClosed()
-      .subscribe((data: Num) => {
+      .subscribe((data: number) => {
         if (data) {
           this.api.genCars(data).subscribe(() => location.reload());
+        }
+      });
+  }
+
+  public editDial(car: Car): void {
+    this.dialog
+      .open(CarsEditDialComponent, { data: car })
+      .afterClosed()
+      .subscribe((data: Car) => {
+        if (data) {
+          this.api.updateCar(data).subscribe(() => location.reload());
+        }
+      });
+  }
+
+  public delDial(id: number): void {
+    this.dialog
+      .open(CarsDelDialComponent, { data: id })
+      .afterClosed()
+      .subscribe((data: number) => {
+        if (data) {
+          this.api.removeCar(data).subscribe(() => location.reload());
         }
       });
   }

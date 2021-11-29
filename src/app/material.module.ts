@@ -6,6 +6,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
+import { MatSortModule } from '@angular/material/sort';
 
 const MaterialComponents = [
   MatToolbarModule,
@@ -15,6 +16,7 @@ const MaterialComponents = [
   MatFormFieldModule,
   MatDialogModule,
   MatInputModule,
+  MatSortModule,
 ];
 
 @NgModule({

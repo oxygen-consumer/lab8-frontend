@@ -6,7 +6,3 @@ export interface Car {
   on_warranty: boolean;
   workmanship_sum: number;
 }
-
-export interface Num {
-  num: number;
-}

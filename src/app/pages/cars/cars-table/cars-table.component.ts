@@ -1,16 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ViewChild,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 import { Car } from '../car-interface';
 import { CarsApiService } from '../cars-api.service';
-import { Sort } from '@angular/material/sort';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-cars-table',
   templateUrl: './cars-table.component.html',
   styleUrls: ['./cars-table.component.scss'],
 })
-export class CarsTableComponent implements OnInit {
-  data: Car[] = [];
-  sortedData: Car[] = [];
+export class CarsTableComponent implements AfterViewInit {
+  @Output() launchEdit: EventEmitter<Car> = new EventEmitter<Car>();
+  @Output() launchDel: EventEmitter<number> = new EventEmitter<number>();
+
+  dataSource!: MatTableDataSource<Car>;
   columnsToDisplay = [
     'id',
     'model',
@@ -18,36 +27,17 @@ export class CarsTableComponent implements OnInit {
     'kilometers',
     'on_warranty',
     'workmanship_sum',
+    'actions',
   ];
 
-  constructor(private api: CarsApiService) {
+  @ViewChild(MatSort) matSort!: MatSort;
+
+  constructor(private api: CarsApiService) {}
+
+  ngAfterViewInit(): void {
     this.api.getCars().subscribe((x) => {
-      this.data = x;
-    });
-    this.sortedData = this.data.slice();
-  }
-
-  sortData(sort: Sort) {
-    const dataSliced = this.data.slice();
-    if (!sort.active || sort.direction === '') {
-      this.sortedData = dataSliced;
-      return;
-    }
-
-    this.sortedData = dataSliced.sort((a, b) => {
-      const isAsc = sort.direction === 'asc';
-      switch (sort.active) {
-        case 'workmanship_sum':
-          return compare(a.workmanship_sum, b.workmanship_sum, isAsc);
-        default:
-          return 0;
-      }
+      this.dataSource = new MatTableDataSource(x);
+      this.dataSource.sort = this.matSort;
     });
   }
-
-  ngOnInit(): void {}
-}
-
-function compare(a: number | string, b: number | string, isAsc: boolean) {
-  return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }

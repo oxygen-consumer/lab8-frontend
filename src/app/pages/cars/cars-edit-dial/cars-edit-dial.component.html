@@ -1,7 +1,7 @@
-<h1 mat-dialog-title>Adăugare mașină</h1>
+<h1 mat-dialog-title>Editare mașină</h1>
 
 <div mat-dialog-container>
-  <form [formGroup]="carCreationForm">
+  <form [formGroup]="carUpdateForm">
     <mat-form-field appearance="fill">
       <mat-label>Model</mat-label>
       <input formControlName="model" matInput placeholder="Ex. BMW" />
@@ -49,9 +49,9 @@
     mat-button
     color="accent"
     (click)="submit()"
-    [disabled]="!carCreationForm.valid"
+    [disabled]="!carUpdateForm.valid"
   >
-    Adaugă
+    Actualizează
   </button>
   <button mat-button (click)="cancel()">Anulare</button>
 </div>

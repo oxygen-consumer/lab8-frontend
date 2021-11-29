@@ -1,6 +1,6 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Car } from '../car-interface';
 
 @Component({
@@ -29,20 +29,11 @@ export class CarsAddDialComponent implements OnInit {
     return this.carCreationForm.get('km');
   }
 
-  constructor(
-    private readonly dialogRef: MatDialogRef<CarsAddDialComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Car
-  ) {}
+  data!: Car;
 
-  ngOnInit(): void {
-    if (this.data) {
-      this.carCreationForm.controls['model'].setValue(this.data.model);
-      this.carCreationForm.controls['year'].setValue(
-        this.data.acquisition_year
-      );
-      this.carCreationForm.controls['km'].setValue(this.data.kilometers);
-    }
-  }
+  constructor(private readonly dialogRef: MatDialogRef<CarsAddDialComponent>) {}
+
+  ngOnInit(): void {}
 
   public submit(): void {
     this.dialogRef.close({
@@ -53,7 +44,7 @@ export class CarsAddDialComponent implements OnInit {
     } as Car);
   }
 
-  public close(): void {
+  public cancel(): void {
     this.dialogRef.close();
   }
 }

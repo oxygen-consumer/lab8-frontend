@@ -16,6 +16,8 @@ import { CarsTableComponent } from './pages/cars/cars-table/cars-table.component
 import { CarsToolbarComponent } from './pages/cars/cars-toolbar/cars-toolbar.component';
 import { CarsAddDialComponent } from './pages/cars/cars-add-dial/cars-add-dial.component';
 import { CarsGenDialComponent } from './pages/cars/cars-gen-dial/cars-gen-dial.component';
+import { CarsDelDialComponent } from './pages/cars/cars-del-dial/cars-del-dial.component';
+import { CarsEditDialComponent } from './pages/cars/cars-edit-dial/cars-edit-dial.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { CarsGenDialComponent } from './pages/cars/cars-gen-dial/cars-gen-dial.c
     CarsToolbarComponent,
     CarsAddDialComponent,
     CarsGenDialComponent,
+    CarsDelDialComponent,
+    CarsEditDialComponent,
   ],
   imports: [
     BrowserModule,

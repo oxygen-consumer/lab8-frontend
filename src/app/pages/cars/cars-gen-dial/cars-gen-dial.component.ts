@@ -1,7 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Num } from '../car-interface';
 
 @Component({
   selector: 'app-cars-gen-dial',
@@ -19,20 +18,15 @@ export class CarsGenDialComponent implements OnInit {
 
   constructor(
     private readonly dialogRef: MatDialogRef<CarsGenDialComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Num
+    @Inject(MAT_DIALOG_DATA) public data: number
   ) {}
 
   ngOnInit(): void {
-    if (this.data) {
-      this.carGenerationForm.controls['num'].setValue(this.data.num);
-    }
+    this.carGenerationForm.controls['num'].setValue(this.data);
   }
 
   public submit(): void {
-    this.dialogRef.close({
-      ...(this.data ? this.data : {}),
-      num: this.carGenerationForm.controls['num'].value,
-    } as Num);
+    this.dialogRef.close(this.data);
   }
 
   public close(): void {
