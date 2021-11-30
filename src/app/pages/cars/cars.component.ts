@@ -3,7 +3,7 @@ import { CarsApiService } from './cars-api.service';
 import { MatDialog } from '@angular/material/dialog';
 import { CarsAddDialComponent } from './cars-add-dial/cars-add-dial.component';
 import { CarsGenDialComponent } from './cars-gen-dial/cars-gen-dial.component';
-import { Car } from './car-interface';
+import { Car, Num } from './car-interface';
 import { CarsDelDialComponent } from './cars-del-dial/cars-del-dial.component';
 import { CarsEditDialComponent } from './cars-edit-dial/cars-edit-dial.component';
 
@@ -35,7 +35,7 @@ export class CarsComponent implements OnInit {
     this.dialog
       .open(CarsGenDialComponent)
       .afterClosed()
-      .subscribe((data: number) => {
+      .subscribe((data: Num) => {
         if (data) {
           this.api.genCars(data).subscribe(() => location.reload());
         }

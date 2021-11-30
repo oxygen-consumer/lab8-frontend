@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Car } from './car-interface';
+import { Car, Num } from './car-interface';
 import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
@@ -26,8 +26,8 @@ export class CarsApiService {
     return this.http.delete<void>(`${environment.apiRoot}cars/${id}/`);
   }
 
-  public genCars(num: number): Observable<number> {
-    return this.http.post<number>(
+  public genCars(num: Num): Observable<Num> {
+    return this.http.post<Num>(
       `${environment.apiRoot}cars/generateRandom/`,
       num
     );
