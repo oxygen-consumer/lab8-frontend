@@ -1,0 +1,67 @@
+<h1 mat-dialog-title>Actualizare client</h1>
+
+<div mat-dialog-container>
+  <form [formGroup]="clientUpdateForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Prenume</mat-label>
+      <input formControlName="first_name" matInput placeholder="Ex. Rareș" />
+      <mat-error *ngIf="first_name">Campul este obligatoriu</mat-error>
+    </mat-form-field>
+
+    <br />
+    <br />
+
+    <mat-form-field appearance="fill">
+      <mat-label>Nume</mat-label>
+      <input formControlName="last_name" matInput placeholder="Ex. Ionescu" />
+      <mat-error *ngIf="last_name">Campul este obligatoriu.</mat-error>
+    </mat-form-field>
+
+    <br />
+    <br />
+
+    <mat-form-field appearance="fill">
+      <mat-label>CNP</mat-label>
+      <input
+        formControlName="CNP"
+        type="number"
+        matInput
+        placeholder="Ex. 5000101000000"
+      />
+      <mat-error *ngIf="CNP"
+        >Campul este obligatoriu si cnp-ul trebuie sa fie valid</mat-error
+      >
+    </mat-form-field>
+
+    <br />
+    <br />
+
+    <mat-form-field apparence="fill">
+      <mat-label>Data nașterii</mat-label>
+      <input
+        formControlName="birth_date"
+        matInput
+        [min]="minDate"
+        [max]="maxDate"
+        [matDatepicker]="picker"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <br />
+    <br />
+  </form>
+</div>
+
+<div mat-dialog-actions>
+  <button
+    mat-button
+    color="accent"
+    (click)="submit()"
+    [disabled]="!clientUpdateForm.valid"
+  >
+    Actualizare
+  </button>
+  <button mat-button (click)="cancel()">Anulare</button>
+</div>

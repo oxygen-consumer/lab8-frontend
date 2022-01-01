@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Ștergere client</h1>
+
+<div mat-dialog-content>
+  <p>Sunteți sigur ca doriți să ștergeți clientul cu id-ul {{ id }}?</p>
+  <p>Acteastă operațiune va sterge toate tranzacțile asociate acestui client</p>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="confirm()" color="warn">Ștergere</button>
+  <button mat-button (click)="cancel()">Anulare</button>
+</div>

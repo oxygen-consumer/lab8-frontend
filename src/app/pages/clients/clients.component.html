@@ -1,1 +1,5 @@
-<p>clients works!</p>
+<app-clients-toolbar (launchAdd)="addDial()"></app-clients-toolbar>
+<app-clients-table
+  (launchDel)="delDial($event)"
+  (launchEdit)="editDial($event)"
+></app-clients-table>

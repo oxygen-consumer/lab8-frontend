@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { environment } from 'src/environments/environment.prod';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
 import { HeaderComponent } from './header/header.component';
@@ -18,6 +17,12 @@ import { CarsAddDialComponent } from './pages/cars/cars-add-dial/cars-add-dial.c
 import { CarsGenDialComponent } from './pages/cars/cars-gen-dial/cars-gen-dial.component';
 import { CarsDelDialComponent } from './pages/cars/cars-del-dial/cars-del-dial.component';
 import { CarsEditDialComponent } from './pages/cars/cars-edit-dial/cars-edit-dial.component';
+import { ClientsToolbarComponent } from './pages/clients/clients-toolbar/clients-toolbar.component';
+import { ClientsTableComponent } from './pages/clients/clients-table/clients-table.component';
+import { ClientsAddDialComponent } from './pages/clients/clients-add-dial/clients-add-dial.component';
+import { ClientsDelDialComponent } from './pages/clients/clients-del-dial/clients-del-dial.component';
+import { ClientsEditDialComponent } from './pages/clients/clients-edit-dial/clients-edit-dial.component';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -33,6 +38,11 @@ import { CarsEditDialComponent } from './pages/cars/cars-edit-dial/cars-edit-dia
     CarsGenDialComponent,
     CarsDelDialComponent,
     CarsEditDialComponent,
+    ClientsToolbarComponent,
+    ClientsTableComponent,
+    ClientsAddDialComponent,
+    ClientsDelDialComponent,
+    ClientsEditDialComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,8 +55,8 @@ import { CarsEditDialComponent } from './pages/cars/cars-edit-dial/cars-edit-dia
   ],
   providers: [
     {
-      provide: 'API_BASE_URL',
-      useValue: environment.apiRoot,
+      provide: MAT_DATE_LOCALE,
+      useValue: 'ro',
     },
   ],
   bootstrap: [AppComponent],
