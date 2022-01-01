@@ -62,6 +62,7 @@ export class ClientsEditDialComponent implements OnInit {
 
   public submit(): void {
     this.dialogRef.close({
+      ...(this.data.client ? this.data.client : {}),
       first_name: this.clientUpdateForm.controls['first_name'].value,
       last_name: this.clientUpdateForm.controls['last_name'].value,
       CNP: this.clientUpdateForm.controls['CNP'].value,
