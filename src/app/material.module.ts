@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSortModule } from '@angular/material/sort';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import {MatSelectModule} from "@angular/material/select";
 
 const MaterialComponents = [
   MatToolbarModule,
@@ -21,6 +22,7 @@ const MaterialComponents = [
   MatSortModule,
   MatDatepickerModule,
   MatMomentDateModule,
+  MatSelectModule,
 ];
 
 @NgModule({

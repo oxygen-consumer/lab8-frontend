@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>Ștergere tranzacție</h1>
+
+<div mat-dialog-content>
+  <p>Sunteți sigur ca doriți să ștergeți trancția cu id-ul {{ id }}?</p>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="confirm()" color="warn">Ștergere</button>
+  <button mat-button (click)="cancel()">Anulare</button>
+</div>

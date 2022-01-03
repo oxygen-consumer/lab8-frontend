@@ -23,6 +23,11 @@ import { ClientsAddDialComponent } from './pages/clients/clients-add-dial/client
 import { ClientsDelDialComponent } from './pages/clients/clients-del-dial/clients-del-dial.component';
 import { ClientsEditDialComponent } from './pages/clients/clients-edit-dial/clients-edit-dial.component';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { TransactionsTableComponent } from './pages/transactions/transactions-table/transactions-table.component';
+import { TransactionsAddDialComponent } from './pages/transactions/transactions-add-dial/transactions-add-dial.component';
+import { TransactionsEditDialComponent } from './pages/transactions/transactions-edit-dial/transactions-edit-dial.component';
+import { TransactionsDelDialComponent } from './pages/transactions/transactions-del-dial/transactions-del-dial.component';
+import { TransactionsToolbarComponent } from './pages/transactions/transactions-toolbar/transactions-toolbar.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +48,11 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     ClientsAddDialComponent,
     ClientsDelDialComponent,
     ClientsEditDialComponent,
+    TransactionsTableComponent,
+    TransactionsAddDialComponent,
+    TransactionsEditDialComponent,
+    TransactionsDelDialComponent,
+    TransactionsToolbarComponent,
   ],
   imports: [
     BrowserModule,

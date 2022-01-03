@@ -1,1 +1,5 @@
-<p>transactions works!</p>
+<app-transactions-toolbar (launchAdd)="addDial()"></app-transactions-toolbar>
+<app-transactions-table
+  (launchDel)="delDial($event)"
+  (launchEdit)="editDial($event)"
+></app-transactions-table>

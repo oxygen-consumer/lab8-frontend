@@ -1,0 +1,69 @@
+<h1 mat-dailog-title>Adăugare tranzacție</h1>
+
+<div mat-dialog-content>
+  <form [formGroup]="transactionCreationForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Mașină</mat-label>
+      <mat-select formControlName="car">
+        <mat-option *ngFor="let car of data.cars" [value]="car.id">
+          {{ car.id }}: {{ car.model }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="car">Campul este obligatoriu</mat-error>
+    </mat-form-field>
+
+    <br />
+    <br />
+
+    <mat-form-field appearance="fill">
+      <mat-label>Client</mat-label>
+      <mat-select formControlName="client">
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let client of data.clients" [value]="client.id">
+          {{ client.id }}: {{ client.first_name }} {{ client.last_name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+    <br />
+    <br />
+
+    <mat-form-field appearance="fill">
+      <mat-label>Sumă piese</mat-label>
+      <input
+        formControlName="parts_price"
+        type="number"
+        matInput
+        placeholder="Ex. 5000"
+      />
+      <mat-error *ngIf="parts_price">Campul este obligatoriu</mat-error>
+    </mat-form-field>
+
+    <br />
+    <br />
+
+    <mat-form-field appearance="fill">
+      <mat-label>Sumă manoperă</mat-label>
+      <input
+        formControlName="workmanship_price"
+        type="number"
+        matInput
+        placeholder="Ex. 500"
+      />
+      <mat-error *ngIf="workmanship_price">Campul este obligatoriu</mat-error>
+    </mat-form-field>
+  </form>
+</div>
+
+<div mat-dialog-actions>
+  <button
+    mat-button
+    color="accent"
+    (click)="submit()"
+    [disabled]="!transactionCreationForm.valid"
+  >
+    Adaugă
+  </button>
+  <button mat-button (click)="cancel()">Anulare</button>
+</div>
