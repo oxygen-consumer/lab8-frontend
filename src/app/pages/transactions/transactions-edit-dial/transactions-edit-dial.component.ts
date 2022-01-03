@@ -1,14 +1,14 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
-import {Car} from "../../cars/car-interface";
-import {Client} from "../../clients/client-interface";
-import {Transaction} from "../transaction-interface";
+import { Component, Inject, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Car } from '../../cars/car-interface';
+import { Client } from '../../clients/client-interface';
+import { Transaction } from '../transaction-interface';
 
 @Component({
   selector: 'app-transactions-edit-dial',
   templateUrl: './transactions-edit-dial.component.html',
-  styleUrls: ['./transactions-edit-dial.component.scss']
+  styleUrls: ['./transactions-edit-dial.component.scss'],
 })
 export class TransactionsEditDialComponent implements OnInit {
   public transactionUpdateForm: FormGroup = new FormGroup({
@@ -16,7 +16,7 @@ export class TransactionsEditDialComponent implements OnInit {
     client: new FormControl(null),
     parts_price: new FormControl('', [Validators.required]),
     workmanship_price: new FormControl('', [Validators.required]),
-  })
+  });
 
   get car() {
     return this.transactionUpdateForm.get('car');
@@ -37,8 +37,8 @@ export class TransactionsEditDialComponent implements OnInit {
   constructor(
     private readonly dialogRef: MatDialogRef<TransactionsEditDialComponent>,
     @Inject(MAT_DIALOG_DATA)
-    public data: {cars: Car[], clients: Client[], transaction: Transaction}
-  ) { }
+    public data: { cars: Car[]; clients: Client[]; transaction: Transaction }
+  ) {}
 
   ngOnInit(): void {
     this.transactionUpdateForm.controls['car'].setValue(
@@ -61,8 +61,9 @@ export class TransactionsEditDialComponent implements OnInit {
       car: this.transactionUpdateForm.controls['car'].value,
       client: this.transactionUpdateForm.controls['client'].value,
       parts_price: this.transactionUpdateForm.controls['parts_price'].value,
-      workmanship_price: this.transactionUpdateForm.controls['workmanship_price'].value,
-    })
+      workmanship_price:
+        this.transactionUpdateForm.controls['workmanship_price'].value,
+    });
   }
 
   public cancel(): void {

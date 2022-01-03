@@ -8,9 +8,8 @@ describe('TransactionsToolbarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TransactionsToolbarComponent ]
-    })
-    .compileComponents();
+      declarations: [TransactionsToolbarComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

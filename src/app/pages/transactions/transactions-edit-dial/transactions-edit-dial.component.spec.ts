@@ -8,9 +8,8 @@ describe('TransactionsEditDialComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TransactionsEditDialComponent ]
-    })
-    .compileComponents();
+      declarations: [TransactionsEditDialComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

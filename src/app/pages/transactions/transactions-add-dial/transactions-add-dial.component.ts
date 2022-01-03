@@ -1,13 +1,13 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {MatDialogRef, MAT_DIALOG_DATA} from "@angular/material/dialog";
-import {Car} from "../../cars/car-interface";
-import {Client} from "../../clients/client-interface";
+import { Component, Inject, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Car } from '../../cars/car-interface';
+import { Client } from '../../clients/client-interface';
 
 @Component({
   selector: 'app-transactions-add-dial',
   templateUrl: './transactions-add-dial.component.html',
-  styleUrls: ['./transactions-add-dial.component.scss']
+  styleUrls: ['./transactions-add-dial.component.scss'],
 })
 export class TransactionsAddDialComponent implements OnInit {
   public transactionCreationForm: FormGroup = new FormGroup({
@@ -15,7 +15,7 @@ export class TransactionsAddDialComponent implements OnInit {
     client: new FormControl(null),
     parts_price: new FormControl('', [Validators.required]),
     workmanship_price: new FormControl('', [Validators.required]),
-  })
+  });
 
   get car() {
     return this.transactionCreationForm.get('car');
@@ -36,19 +36,19 @@ export class TransactionsAddDialComponent implements OnInit {
   constructor(
     private readonly dialogRef: MatDialogRef<TransactionsAddDialComponent>,
     @Inject(MAT_DIALOG_DATA)
-    public data: {cars: Car[], clients: Client[]}
-  ) { }
+    public data: { cars: Car[]; clients: Client[] }
+  ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   public submit(): void {
     this.dialogRef.close({
       car: this.transactionCreationForm.controls['car'].value,
       client: this.transactionCreationForm.controls['client'].value,
       parts_price: this.transactionCreationForm.controls['parts_price'].value,
-      workmanship_price: this.transactionCreationForm.controls['workmanship_price'].value,
-    })
+      workmanship_price:
+        this.transactionCreationForm.controls['workmanship_price'].value,
+    });
   }
 
   public cancel(): void {
